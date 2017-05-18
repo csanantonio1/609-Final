@@ -1,0 +1,266 @@
+---
+title: "Appendices"
+author: "Christine San Antonio"
+date: "May 17, 2017"
+output: word_document
+---
+
+
+
+
+####Appendix A - Supplemental Methods - Experiment Procedure
+
+
+**Laboratory Setup**
+  
+  To perform this experiment, I used the pH-stat carbon dioxide dosing system at UMass Boston, which consists of 24 10-gallon aquarium tanks each equipped with airstones for bubbling ambient air and carbon dioxide, separate solenoids that regulate the CO2 dosing, and individual tank heaters that maintain temperature. The system operates using a hobbyist aquarist Digital Aquatics Reef Keeper Elite system with separate SL1 units for each tank that measure and log pH and temperature data continuously; slight variations in pCO2 levels within one tank trigger the solenoids to switch on and dose until the programmed pH setpoint is reached (Wilcox-Freeburg et al 2013). As this was a joint project with the New England Aquarium, the juvenile American lobsters were reared to stages VII-X in the aquarium's lobster hatchery and then transferred to the aquarium system at UMass Boston. Lobsters were gently wrapped "burrito style" with seawater soaked paper towels and layered within small conatainers kept within a cooler. The lobsters were allowed a three-day acclimation period upon being placed in the system tanks and prior to any experimental conditions being applied. Carapace length measurements were recorded (average of three measurements) for each lobster before being placed in the tanks.
+  
+  Initial aquarium water consisted of 75% artificial seawater (Instant Ocean sea salts mixed with DI water) and 25% filtered natural Boston Harbor seawater supplied by the New England Aquarium to help establish a biofilter, to help minimize stress as the lobsters acclimated to the system, and to help ensure the ubiquitous bacteria was present and became established within the system. Instant ocean was mixed in a 1000 L tank with a submersible pump to achieve a consistent salinity of 32.0 ppt; water was then transferred to an intermediate 600 L reservoir connected to each tank through a PVC piping system. The intermediate reservoir allowed for greater control over salinity and temperature as well as minimizing the time needed for water changes, reducing stress on the lobsters. Active bioballs were also kept in the intermediate reservoir to help maintain a biofilter throughout the experiment.
+    
+  To ensure the system read consistently accurate pH values, the seawater millivolts were measured from each tank daily and compared to the system pH readout. pH electrodes that were > 0.03 off target were calibrated using synthetic seawater buffers, TRIS and Aminopyridine, made fresh prior to the experiment (Dickson et al 2007). Seawater alkalinity from each tank was also acquired daily using an open-cell titrator, which was calibrated before every use. Temperature and salinity from each tank were also measured daily using a YSI probe; the temperature values were compared to the values being recorded by the system, which was calibrate as needed. At the completion of the experiment, mean pH, alkalinity, temperature, and salinity values for each tank were input into the analytical program, ORNL/CDIAC-105 CO2SYS (http://cdiac.ornl.gov/oceans/co2rprt.html) to calculate the corresponding pCO2, DIC, and saturation state of aragonite for each tank (Pierrot et al 2006). 
+    
+    
+    
+    
+####Appendix B - Other Model Output 
+All models fit and converged with very similar postchecks (all within range of sigma).
+```{r models, echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+##4. Build Models - treatment, temp, pH, temp + pH
+set.seed(601)
+
+#4A. Model 1: Predictors = treatment indexed + growth
+esd_mod_1 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ bT[treat_idx] + bG*growth,
+  
+  #Priors
+  bT[treat_idx] ~ dnorm(0,10),
+  bG ~ dnorm(0,10),
+  phi ~ dcauchy(0,2)
+)
+
+#4B. Model 2: Predictors = temperature + growth
+esd_mod_2 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ b_temp[temp_idx] + bG*growth,
+  
+  #Priors
+  b_temp[temp_idx] ~ dnorm(0,10),
+  bG ~ dnorm(0,10),
+  phi ~ dcauchy(0,2)
+)
+
+#4C. Model 3: Predictors = pH + growth
+esd_mod_3 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ b_ph[ph_idx] + bG*growth,
+  
+  #Priors
+  b_ph[ph_idx] ~ dnorm(0,10),
+  bG ~ dnorm(0,10),
+  phi ~ dcauchy(0,2)
+)
+
+#4D. Model 4: Predictors = pH + temp + growth
+esd_mod_4 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ b_temp[temp_idx] + b_ph[ph_idx] + bG*growth,
+  
+  #Priors
+  b_temp[temp_idx] ~ dnorm(0,10),
+  b_ph[ph_idx] ~ dnorm(0,10),
+  bG ~ dnorm(0,10),
+  phi ~ dcauchy(0,2)
+)
+```
+```{r intercept models, echo = TRUE, eval = FALSE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#4E. Treatment predictor - growth random effect
+esd_mod_5 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ a_growth*growth + bT[treat_idx],
+  a_growth ~ dnorm(0, sigma_growth),
+  
+  #Priors
+  phi ~ dcauchy(0,2),
+  sigma_growth ~ dcauchy (0,2),
+  bT[treat_idx] ~ dnorm(0,10)
+)
+
+#4F.Temperature predictor - growth random effect
+esd_mod_6 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ a_growth*growth + b_temp[temp_idx],
+  a_growth ~ dnorm(0, sigma_growth),
+  
+  #Priors
+  phi ~ dcauchy(0,2),
+  sigma_growth ~ dcauchy (0,2),
+  b_temp[temp_idx] ~ dnorm(0,10)
+)
+
+#4G. pH predictor - growth random effect
+esd_mod_7 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ a_growth*growth + b_ph[ph_idx],
+  a_growth ~ dnorm(0, sigma_growth),
+  
+  #Priors
+  phi ~ dcauchy(0,2),
+  sigma_growth ~ dcauchy (0,2),
+  b_ph[ph_idx] ~ dnorm(0,10)
+)
+
+#4H. Temp and pH predictor - growth random effect
+esd_mod_8 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ a_growth*growth + b_temp[temp_idx] + b_ph[ph_idx],
+  a_growth ~ dnorm(0, sigma_growth),
+  
+  #Priors
+  phi ~ dcauchy(0,2),
+  sigma_growth ~ dcauchy (0,2),
+  b_temp[temp_idx] ~ dnorm(0,50),
+  b_ph[ph_idx] ~ dnorm(0,10)
+)
+```
+```{r fit one, echo = TRUE, eval = FALSE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+##5. Fit models and Evaluate
+
+#5A.
+set.seed(601)
+
+esd_fit_1 <- map2stan(esd_mod_1, data = esd,
+                    iter=3000, chains = 3)
+```
+```{r fit two, echo = TRUE, eval = FALSE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#5B.
+esd_fit_2 <- map2stan(esd_mod_2, data = esd,
+                    iter=3000, chains = 3)
+
+```
+```{r fit three, echo = TRUE, eval = FALSE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#5C.
+esd_fit_3 <- map2stan(esd_mod_3, data = esd,
+                    iter=3000, chains = 3)
+
+```
+```{r fit four, echo = TRUE, eval = FALSE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#5D.
+esd_fit_4 <- map2stan(esd_mod_4, data = esd,
+                    iter=3000, chains = 3)
+
+```
+```{r fit 5, echo = TRUE, eval = FALSE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#5E.
+esd_fit_5 <- map2stan(esd_mod_5, data = esd,
+                  iter=3000, chains = 3)
+
+```
+```{r fit 6, echo = TRUE, eval = FALSE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#5F.
+esd_fit_6 <- map2stan(esd_mod_6, data = esd,
+                  iter=3000, chains = 3)
+
+```
+```{r fit 7, echo = TRUE, eval = FALSE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#5G.
+esd_fit_7 <- map2stan(esd_mod_7, data = esd,
+                  iter=3000, chains = 3)
+
+```
+```{r fit 8, echo = TRUE, eval = FALSE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#5H.
+esd_fit_8 <- map2stan(esd_mod_8, data = esd,
+                  iter=3000, chains = 3)
+
+```
+```{r evals, echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+##6. Evaluating all fits - Postchecks, plot convergence, precis output, WAIC
+
+postcheck(esd_fit_1, par(mfrow = c(2,3)))
+postcheck(esd_fit_2, par(mfrow = c(2,3)))
+postcheck(esd_fit_3, par(mfrow = c(2,3)))
+postcheck(esd_fit_4, par(mfrow = c(2,3)))
+
+postcheck(esd_fit_5, par(mfrow = c(3,2)))
+postcheck(esd_fit_6, par(mfrow = c(2,3)))
+postcheck(esd_fit_7, par(mfrow = c(2,3)))
+postcheck(esd_fit_8, par(mfrow = c(2,3)))
+
+plot(esd_fit_1)
+plot(esd_fit_2)
+plot(esd_fit_3)
+plot(esd_fit_4)
+
+plot(esd_fit_5)
+plot(esd_fit_6)
+plot(esd_fit_7)
+plot(esd_fit_8)
+
+precis(esd_fit_1, depth = 2)
+precis(esd_fit_2, depth = 2)
+precis(esd_fit_3, depth = 2)
+precis(esd_fit_4, depth = 2)
+
+precis(esd_fit_5, depth = 2)
+precis(esd_fit_6, depth = 2)
+precis(esd_fit_7, depth = 2)
+precis(esd_fit_8, depth = 2)
+
+coeftab(esd_fit_1, esd_fit_2, esd_fit_3, esd_fit_4, esd_fit_5, esd_fit_6, esd_fit_7, esd_fit_8)
+compare(esd_fit_1, esd_fit_2, esd_fit_3, esd_fit_4, esd_fit_5, esd_fit_6, esd_fit_7, esd_fit_8)
+
+plot(compare(esd_fit_1, esd_fit_2, esd_fit_3, esd_fit_4, esd_fit_5, esd_fit_6, esd_fit_7, esd_fit_8))
+
+```

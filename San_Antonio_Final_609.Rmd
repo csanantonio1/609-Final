@@ -1,0 +1,568 @@
+---
+title: Effects of ocean acidification and elevated temperatures on shell disease coverage
+  in juvenile American lobsters
+author: "Christine San Antonio"
+date: "May 7, 2017"
+output: word_document
+---
+
+###Introduction:
+The American lobster, Homarus americanus H Milne Edwards 1837, is a cold water marine decapod with a population range from Cape Hatteras to Labrador/Newfoundland; a substantial portion, however, is found within the Gulf of Maine (Herrick 1909, Tanaka and Chen 2015). In the Fifth Assessment Report (AR5), the Intergovernmental Panel on Climate Change predicted an increase in global temperatures by at least 1.5 C (for all but the most aggressive mitigation scenario) by 2100 (IPCC 2013). The Gulf of Maine is warming five times faster than the rest of the world's oceans due to the Gulf Stream shifting northward, upwelling dynamics, and changes in the AMO and the PDO (Fabry et al 2009, Mills et al 2013, Pershing et al 2015, Waller et al 2016). As ectotherms, the growth and development of American lobsters is exothermically driven and directly correlated to their surrounding environment; increasing temperatures would directly affect the normal physiological processes regulating metabolism, reproductive rate, growth and molt cycles of individual lobsters, which would in turn impact lobster population dynamics (Crossin et al 1998, Nielsen and McGaw 2016). The IPCC also predicted that the global ocean pH could drop as low as 7.8 by the year 2100 under a business as usual scenario (IPCC 2013). Although lobsters make their exoskeletons primarily of chitin, they do sequester calcium and carbonate ions from surrounding water in order to deposit minerals that serve to increase the structural integrity of the shell. The presence of these minerals is essential to lobster survival and their precipitation occurs simultaneously with normal lobster growth (Kunkel et al 2012, Davies et al 2014).
+
+Epizootic shell disease is believed to be caused by ubiquitous bacteria, possibly Aquimarina homeri in conjunction was other types of bacteria (Castro et al 2012, Chistoserdov et al 2012, Meres et al 2012, Quinn et al 2012). Research suggests that there is a strong correlation between increasing ocean temperature and presence of epizootic shell disease (Castro et al 2006, Glenn and Pugh 2006, Tlusty and Metzler 2012). As ocean temperatures and acidification continue to increase due to anthropogenic climate change, ESD-causing bacteria are also likely to increase in abundance (Castro and Somers 2012) and the general health of American lobsters is likely going to be negatively affected. There has not yet been any research done looking at the interactive effects of decreased pH and increased temperature on American lobster shell development in relation to epizootic shell disease. This laboratory based experiment tested the following null hypothesis:
+
+.	There is no difference in mean percent disease coverage on juvenile American lobsters in experimental treatments compared to control
+
+###Methods:
+####See Appendices for additional experiment methods and unused model code
+
+**NOTE:** the methods outlined here describing the experimental setup, number of treatments, water quality measurements, handling and caring for lobsters, growth measurements, preparing shells for imaging on the SEM, using ImageJ to acquire the area of disease lesions, and describing sources of error are all accurate and true accounts of a recent experiment. However, due to system issues, I was never able to actually start treatment conditions and carry out that experiment to completion. I have consequently made up the data for the percent disease lesions (values for initial carapace lenght, final carapace length, and hence growth were all real values), which will be described in this section. It was far easier to write this section as though I had done all of those things in reality, however, so please bare that in mind.
+
+
+**Experimental Design**
+
+Six treatments with three replicates crossing pH and temperature setpoints: 7.6, 7.8, 8.1 and 17 C, 21 C, respectively, were completely randomized across the pH-stat CO2 dosing aquarium system (Wilcox-Freeburg et al 2013). The stage VIII juvenile lobsters were divided equally across the 18 tanks used with a final stocking density of n=6 per tank. Lobsters were grown under treatment conditions for six weeks, with the first seven days staged to slowly bring the pH and temperature to the appropriate final setpoint for each treatment. Each day, lobsters were fed brine shrimp to excess to help minimize stress from hunger and to discourage foraging behavior. Best practices for water quality in ocean CO2 measurements were followed throughout the experiment (Dickson et al 2007, Riebesell et al 2009).
+
+
+**Post-Experiment Measurements of Growth and Disease**
+
+At the end of the experiment, lobster carapace measurements were repeated to obtain a final length that could be used to compare across treatments and to assess growth over the six weeks. Lobsters were euthanized and dissected to remove the upper left quadrant of the carapace. This piece was cleaned, dried and mounted on a stub to be viewed under the scanning electron microscope. The remainder of the shell was used for additional mineralogical and transcriptomic analyses. The carapace section was magnified to x4500 on the SEM, until the image area was equal to 120 mm^2. This was repeated for every sample so that image area would be standardized for each lobster. This image was then opened in the software program ImageJ, which allowed for the precise quantification of the area of all disease lesions present. The disease lesion area was then divided by the image area to obtain a percent of disease coverage for the lobster. 
+
+
+**Sources of Error**
+
+As with any experiment, there are numerous opportunities for outside error to influence the outcome of the project if not controlled. For this trial, such error included: problems with the water quality of the instant ocean; system and equipment error; human error and/or negligence. The experiment was designed to ensure true independent replicates and to avoid pseudoreplication. A possible point of contention here is that the setup, being constrained within a small climate controlled room, uses only one CO2 cylinder to dose tanks. The physical constraints of the experimental workspace eliminates the possibility of having an independent CO2 cylinder for every tank on the system. Because only treatment tanks are dosed and control tanks are not, this could constitute a form of pseudoreplication and could obscure hidden factors driving response (Hurlbert 1984). There have been others who counter this argument saying the likelihood in which the CO2 cylinder could be contaminated is extremely low compared to the likelihood of micro-organisms living in tanks of seawater (Cornwall and Hurd 2016). I feel confident that there was no interference with the CO2 dosing setup nor were there any impurities in the cylinder when it was delivered from Airgas new, however, I agree that I cannot say this is true with 100% certainty and therefore I cannot say with that same level of confidence that the responses are attributable to the presence of CO2 and the concomitant decrease in pH. 
+
+
+**Making up the Data**
+
+Since I already had acquired before/after carapace length measurements, temperature and pH values averaged for each treatment from a previous experiment, and an appropriate range of disease coverage within the designated area of the SEM image, it was easier to simply generate disease area values for each lobster using a range constricted random number generator directly in the csv document. This gave a value between zero and five mm^2 for total disease area to each lobster. Because the imaging method I developed dictates that the area of the carapace that I image at x4500 be standard for all individuals, this value was set at 120 mm^2 for every lobster. The randomly generated disease area value was divided by the image area (120) to give a final percent of disease coverage for that individual termed esd_ratio. The use of a random number generator essentially precluded to possibility that there would be any significant differences found in treatments vs control. I felt that since I was making up the data, that this was the most appropriate method to follow, even if I knew I wouldn't see interesting results. It also ensured that my own assumptions about how disease coverage should change based on pH and temperature are removed. Although it is meaningless in this case whether I force significant differences or not, I felt it was better practice to avoid doing so as it will help me to maintain the quality of my analyses in the future.  
+
+
+**Statistical Analysis**
+
+In order to compare and evaluate percent disease coverage between lobsters and treatment, I needed to incorporate growth as a covariate into all the models I built. The lobsters used were all from the same hatch, but some molted more frequently and grew larger than others. Under real experimental conditions, this could be partially attributed to the relationship between temperature and metabolic rate - those in higher temperature treatments would grow faster. Larger lobsters have more shell area and shell layers that are potentially more developed with greater mineral content and structural integrity, all of which could influence susceptibility to and prevalence of ESD. By including growth as a covariate, I effectively eliminated any influence it may have on the response variable (esd_ratio) for the purposes of the analysis, allowing me to compare lobsters between treatments looking solely at pH and temperature (or treatment) as predictors (Figure 1). I indexed treatment using as.numeric so that the data type was one that map2stan could work with (not character/factor). Although the temperature and pH data were already standardized for each treatment, they were not simple indexed numbers (1:6), but rather values like 20.89 and 7.67. To make it easier to work with this data and to build the models so that they made sense when doing comparisons, I also manually indexed temperature and pH. 
+
+**Treatment Definitions (pH/temp):**
+C (control): 8.1/17C
+T: 8.1/21C
+OA1: 7.8/17C
+OA2: 7.6/17C
+OAT1: 7.8/21C
+OAT2: 7.6/21C
+
+```{r Prep, echo = FALSE, eval = TRUE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+#Libraries
+library(rethinking)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+#1. Data
+esd <- read.csv("./lobster_esd.csv")
+
+#2. Pre-model Prep - making indices for treatment, temp, pH
+#I couldn't get the temp and ph columns to be ordered as simple 1-6 using as.numeric
+#so I did it manually in the data file
+esd <- esd %>%
+  mutate(treat_idx = as.numeric(treatment))
+head(esd)
+str(esd)
+
+#3. Quick plot data
+base_plot <- ggplot(data = esd,
+                    mapping = aes(x = treatment,
+                                  y = esd_ratio,
+                                  color = tank)) + 
+  geom_point(size = 2) + 
+  theme_bw() +
+  labs(title = "Percent Shell Disease Coverage by Treatment")
+
+```
+```{r bplot, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE, fig.height=5, fig.width = 7}
+base_plot 
+par(ask=F)
+
+```
+
+**Figure 1.** There is notable variation in percent coverage both within tank and within treatment due to the random number generator used to create the esd_ratio values. It also seems apparent that there is not difference in esd_ratio between treatments and control, likely for the same reason.
+
+
+**The Beta Distribution**
+
+Based on my interpretation of how the world works, both growth and disease coverage should follow a normal data generating process and are assumed to have a normal error structure. However, to effectively evaluate the percent disease coverage, I built models using a beta distribution, which is appropriate for continuous response data that fall within the standard unit interval of 0, 1 (Cribari-Neto and Zeileis 2010, Simas et al 2010). Beta distributions are similar to binomial except rather than having success or failure (0 or 1) being the only two outcomes, beta distributions assume each data point has its own probability of success. It is this distribution of probabilities that is used in beta regression. Using this distribution is most appropriate for rate, percent, and proportion type data (as is the case here), and particularly for data that are overdispersed. 
+
+In many cases, response data that fall within the unit interval are transformed (very commonly using a logit transformation) so that a linear regression can be performed with data that falls on the real number lin. Using the beta distribution has many benefits over such transformations: the parameters of the beta distribution (with a built-in link function) naturally incorporate issues of heteroskedasticity as well as issues of asymmetry (both can be common for this type of data), which removes to need to logit transform; it allows you to work directly with the response variable and interpret your regression parameters in terms of the mean of y (original variable of interest). This final point relates to Jensen's Inequality, which stipulates that for a nonlinear relationship, the average of the outputs of two inputs is not equal the average output of those two inputs. I think that as far as the beta distribution goes, what this is saying is that these averages are greater than or less than depending on the curvature of the nonlinear relationship (convex vs concave from the linear line) and perhaps by log transforming the data you can affect this dynamic, possibly changing from convex to concave. This would give you different and inaccurate parameter estimates compared to using untransformed data. Maybe? Ultimately, the literature supports that using beta distribution over transformation enhances the accuracy of your data interpretation.
+
+Although there is an R package specific to beta regression called betareg, I chose to conduct my analyses in a Bayesian framework because of the ease of which I could adjust and compare fixed and random variables, because it allowed the option to include priors, and because the results from posthoc tests are more meaningful than "did it or didn't it fall below the p-value threshold." I used the dbeta2 function in the rethinking package, which takes the parameters mean mu (average probability) and precision parameter phi (shape/spread of the distribution). The greater the value for phi, the tighter the distribution of probabilities - the smaller the variance. This is another benefit of using the beta distribution -beta densities are very flexible as dictated by the two parameters. Lamentably, McElreath does not discuss much about the beta regression, though he does briefly cover the topic of the beta distribution. He does not provide any examples using dbeta2 and focuses instead on beta-binomial regressions, which take a different shape parameter (theta) from beta (phi). The two distributions are not inherently dissimilar, but beta-binom is meant for proportions that are frequencies (count data) where beta is suitable for continuous type data within the 0:1 interval. 
+
+
+**Model Construction**
+
+Once I had decided on using a beta distribution, I began constructing models that could answer my null hypothesis. I built multiple models that varied the fixed and random effects and compared them using WAIC to determine which of them best explained the data. This was somewhat an exercise in futility, since I created the data using a random number generator. I initially constructed four models that tested the influence of 1) treatment, 2) temperature, 3) pH, and 4) temperature and pH as fixed effects. Since temperature and pH are the intended predictor variables of my experiment and they are applied to each treatment, I considered these fixed effects and varied them with slope in the models. As I mentioned previously, I also made sure to include growth as a covariate. In these first four models, I varied growth with slope, thinking that was appropriate for a covariate. However, because growth is not a predictor variable as part of an experimental treatment, but rather an additional source of variation, I determined that growth should be a random effect instead. I then built four more models that were identical to the first four, but varied growth with intercept instead of slope. For each model, priors were weakly informative as it is generally accepted that it is less costly to set a prior that is too wide rather than one that is too narrow.
+
+
+**Model Evaluation and Posthocs**
+
+Models were evaluated with postcheck and plot to confirm good fit and convergence. One of the "better" models was selected based on the WAIC comparison and used to run posthoc tests that would address the question posed by my null hypothesis. I drew samples from the posterior distribution, creating a new dataframe that I then used to construct density plots comparing experimental treatments to control. By performing an ad hoc Dunnett's test, I calculated the percent chance that each treatment was different from control. 
+
+**For brevity, I only included here code for the model that I used for posthocs. The WAIC output showed all models were roughly equivalent.**
+
+```{r models, echo = FALSE, eval = TRUE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+###Other Model Code - kept only to run WAIC stuff; all outputs etc can be found in the appendices###
+
+##4. Build Models - treatment, temp, pH, temp + pH
+set.seed(601)
+
+#4A. Model 1: Predictors = treatment indexed + growth
+esd_mod_1 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ bT[treat_idx] + bG*growth,
+  
+  #Priors
+  bT[treat_idx] ~ dnorm(0,10),
+  bG ~ dnorm(0,10),
+  phi ~ dcauchy(0,2)
+)
+
+#4B. Model 2: Predictors = temperature + growth
+esd_mod_2 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ b_temp[temp_idx] + bG*growth,
+  
+  #Priors
+  b_temp[temp_idx] ~ dnorm(0,10),
+  bG ~ dnorm(0,10),
+  phi ~ dcauchy(0,2)
+)
+
+#4C. Model 3: Predictors = pH + growth
+esd_mod_3 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ b_ph[ph_idx] + bG*growth,
+  
+  #Priors
+  b_ph[ph_idx] ~ dnorm(0,10),
+  bG ~ dnorm(0,10),
+  phi ~ dcauchy(0,2)
+)
+
+#4D. Model 4: Predictors = pH + temp + growth
+esd_mod_4 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ b_temp[temp_idx] + b_ph[ph_idx] + bG*growth,
+  
+  #Priors
+  b_temp[temp_idx] ~ dnorm(0,10),
+  b_ph[ph_idx] ~ dnorm(0,10),
+  bG ~ dnorm(0,10),
+  phi ~ dcauchy(0,2)
+)
+```
+```{r intercept models, echo = FALSE, eval = TRUE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#4E. Treatment predictor - growth random effect
+esd_mod_5 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ a_growth*growth + bT[treat_idx],
+  a_growth ~ dnorm(0, sigma_growth),
+  
+  #Priors
+  phi ~ dcauchy(0,2),
+  sigma_growth ~ dcauchy (0,2),
+  bT[treat_idx] ~ dnorm(0,10)
+)
+
+#4F.Temperature predictor - growth random effect
+esd_mod_6 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ a_growth*growth + b_temp[temp_idx],
+  a_growth ~ dnorm(0, sigma_growth),
+  
+  #Priors
+  phi ~ dcauchy(0,2),
+  sigma_growth ~ dcauchy (0,2),
+  b_temp[temp_idx] ~ dnorm(0,10)
+)
+
+#4G. pH predictor - growth random effect
+esd_mod_7 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ a_growth*growth + b_ph[ph_idx],
+  a_growth ~ dnorm(0, sigma_growth),
+  
+  #Priors
+  phi ~ dcauchy(0,2),
+  sigma_growth ~ dcauchy (0,2),
+  b_ph[ph_idx] ~ dnorm(0,10)
+)
+
+#4H. Temp and pH predictor - growth random effect
+esd_mod_8 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ a_growth*growth + b_temp[temp_idx] + b_ph[ph_idx],
+  a_growth ~ dnorm(0, sigma_growth),
+  
+  #Priors
+  phi ~ dcauchy(0,2),
+  sigma_growth ~ dcauchy (0,2),
+  b_temp[temp_idx] ~ dnorm(0,50),
+  b_ph[ph_idx] ~ dnorm(0,10)
+)
+```
+```{r fit one, echo = FALSE, eval = TRUE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+##5. Fit models and Evaluate
+
+#5A.
+set.seed(601)
+
+esd_fit_1 <- map2stan(esd_mod_1, data = esd,
+                    iter=3000, chains = 3)
+```
+```{r fit two, echo = FALSE, eval = TRUE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#5B.
+esd_fit_2 <- map2stan(esd_mod_2, data = esd,
+                    iter=3000, chains = 3)
+
+```
+```{r fit three, echo = FALSE, eval = TRUE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#5C.
+esd_fit_3 <- map2stan(esd_mod_3, data = esd,
+                    iter=3000, chains = 3)
+
+```
+```{r fit four, echo = FALSE, eval = TRUE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#5D.
+esd_fit_4 <- map2stan(esd_mod_4, data = esd,
+                    iter=3000, chains = 3)
+
+```
+```{r fit 5, echo = FALSE, eval = TRUE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#5E.
+esd_fit_5 <- map2stan(esd_mod_5, data = esd,
+                  iter=3000, chains = 3)
+
+```
+```{r fit 6, echo = FALSE, eval = TRUE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#5F.
+esd_fit_6 <- map2stan(esd_mod_6, data = esd,
+                  iter=3000, chains = 3)
+
+```
+```{r fit 7, echo = FALSE, eval = TRUE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#5G.
+esd_fit_7 <- map2stan(esd_mod_7, data = esd,
+                  iter=3000, chains = 3)
+
+```
+```{r fit 8, echo = FALSE, eval = TRUE, results = 'hide', message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+set.seed(601)
+
+#5H.
+esd_fit_8 <- map2stan(esd_mod_8, data = esd,
+                  iter=3000, chains = 3)
+
+```
+```{r final model, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE, results = 'hide'}
+
+#Selected model: treatment is the predictor and growth is included as a random effect
+set.seed(601)
+
+esd_mod_5 <- alist(
+  #likelihood - dbeta2
+  esd_ratio ~ dbeta2(mu, phi),
+  
+  #DGP - logit link 
+  logit(mu) ~ a_growth*growth + bT[treat_idx],
+  a_growth ~ dnorm(0, sigma_growth),
+  
+  #Priors
+  phi ~ dcauchy(0,2),
+  sigma_growth ~ dcauchy (0,2),
+  bT[treat_idx] ~ dnorm(0,10)
+)
+
+set.seed(601)
+esd_fit_5 <- map2stan(esd_mod_5, data = esd,
+                  iter=3000, chains = 3)
+
+```
+``` {r visualize, results = 'hide', echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+##7. Visualize Model 5 - drawing from posterior distribution
+
+samp <- extract.samples(esd_fit_5)
+str(samp)
+
+treatment_df <- as.data.frame(samp$bT)
+names(treatment_df) <- levels(esd$treatment)
+
+treatment_df_estimate <- treatment_df %>%
+  gather(treatment, esd_ratio) %>%
+  group_by(treatment) %>%
+  mutate(tank = "Tank")
+
+final_plot <- ggplot(data = esd,
+                    mapping = aes(x = treatment,
+                                  y = esd_ratio,
+                                  color = tank)) + 
+  geom_point(size = 2) +
+  geom_point(data = treatment_df_estimate) + 
+  theme_bw() +
+  labs(title = "Predictions from Sampled Posterior")
+
+```
+``` {r posthocs, results = 'hide', echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE}
+
+#1. Control vs T
+CvT <- treatment_df$C - treatment_df$T
+plot(density(CvT))
+Control_vs_T <- 1-sum(CvT < 0)/length(CvT)
+
+#2. Control vs OA1
+CvOA1 <- treatment_df$C - treatment_df$OA1
+plot(density(CvOA1))
+Control_vs_OA1 <- 1-sum(CvOA1 < 0)/length(CvOA1)
+
+#3. Control vs OA2
+CvOA2 <- treatment_df$C - treatment_df$OA2
+plot(density(CvOA2))
+Control_vs_OA2 <- 1-sum(CvOA2 < 0)/length(CvOA2)
+
+#4. Control vs OAT1
+CvOAT1 <- treatment_df$C - treatment_df$OAT1
+plot(density(CvOAT1))
+Control_vs_OAT1 <- 1-sum(CvOAT1 < 0)/length(CvOAT1)
+
+#5. Control vs OAT2
+CvOAT2 <- treatment_df$C - treatment_df$OAT2
+plot(density(CvOAT2))
+Control_vs_OAT2 <- 1-sum(CvOAT2 < 0)/length(CvOAT2)
+
+
+### Density Plots Comparing Treatments to Control
+#1. Control vs T
+CvT_plot <- ggplot(treatment_df, mapping = aes(x=probability)) + 
+  geom_density(aes(x=treatment_df$C), fill="blue", alpha = 0.3) +
+  geom_density(aes(x=treatment_df$T), fill = "green", alpha= 0.3) + 
+  theme_bw()
+#2. Control vs OA1
+CvOA1_plot <- ggplot(treatment_df, mapping = aes(x=probability)) + 
+  geom_density(aes(x=treatment_df$C), fill="blue", alpha = 0.3) +
+  geom_density(aes(x=treatment_df$OA1), fill = "pink", alpha= 0.3) + 
+  theme_bw()
+#3. Control vs OA2
+CvOA2_plot <- ggplot(treatment_df, mapping = aes(x=probability)) + 
+  geom_density(aes(x=treatment_df$C), fill="blue", alpha = 0.3) +
+  geom_density(aes(x=treatment_df$OA2), fill = "orange", alpha= 0.3) + 
+  theme_bw()
+#4. Control vs OAT1
+CvOAT1_plot <- ggplot(treatment_df, mapping = aes(x=probability)) + 
+  geom_density(aes(x=treatment_df$C), fill="blue", alpha = 0.3) +
+  geom_density(aes(x=treatment_df$OAT1), fill = "red", alpha= 0.3) + 
+  theme_bw()
+#5. Control vs OAT2
+CvOAT2_plot <- ggplot(treatment_df, mapping = aes(x=probability)) + 
+  geom_density(aes(x=treatment_df$C), fill="blue", alpha = 0.3) +
+  geom_density(aes(x=treatment_df$OAT2), fill = "yellow", alpha= 0.3) + 
+  theme_bw()
+
+```
+
+###Results
+The WAIC output showed that esd model 2 (temp and growth as fixed effects, pH not included) best fit the data with the lowest WAIC and the highest weight; however, differences between model weights were exceptionally small (Table 1, Figure 2). Because the models were roughly equivalent in best explaining the data, esd model 5 was selected for posthoc analysis because it include growth as a random effect with treatment as the predictor, which made addressing the null hypothesis more straight forward. The posterior validation check showed that the simulated posterior predictions largely fell within the bounds of variation for the original observed outcomes (Figure 3). Additionally, the chains converged well and each coefficient had a high effective sample size (Figure 4, Table 2). 
+
+Posthoc analysis using the sampled posterior distribution directly compared samples from treatments against control samples, which provided conditional probabilities that the mean esd_ratio from experimental treatments were different from the mean esd_ratio of control (Table 3). There is a 38% chance that mean percent disease coverage from treatment T (8.1/21C) was different from control C (8.1/17C); a 16% chance that treatment OA1 (7.8/17C) was different from C; a 41% chance that OA2 (7.6/17C) was different from C; a 41% chance that OAT1 (7.8/21C) was different from C; and a 50% chance OAT2 (7.6/21C) was different from control. Comparisons between experimental treatments were not made as they had no relevance to the research question. Figures 5 through 10 show the marginal distributions of each treatment vs control comparison as density plots, which take into account variation among treatments. Figure 10 shows the posterior predictive distribution constructed from the estimates dataframe drawn from sampling the posterior.
+
+``` {r results,  echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE, fig.width=5, fig.height = 3}
+
+#Table 1.
+compare(esd_fit_1, esd_fit_2, esd_fit_3, esd_fit_4, esd_fit_5, esd_fit_6, esd_fit_7, esd_fit_8)
+
+#Figure 2.
+plot(compare(esd_fit_1, esd_fit_2, esd_fit_3, esd_fit_4, esd_fit_5, esd_fit_6, esd_fit_7, esd_fit_8))
+
+#Figure 3. 
+postcheck(esd_fit_5, par(mfrow = c(3,2)))
+
+#Figure 4. 
+plot(esd_fit_5)
+```
+``` {r precis,  echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE, fig.width=5, fig.height = 3}
+
+#Table 2. 
+precis(esd_fit_5, depth = 2)
+```
+``` {r differences,  echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE, fig.width=5, fig.height = 3}
+#Table 3. Percent chance that treatment is different from control
+#C (control): 8.1/17C, T: 8.1/21C, OA1: 7.8/17C, OA2: 7.6/17C, OAT1: 7.8/21C, OAT2: 7.6/21C
+Control_vs_T
+Control_vs_OA1
+Control_vs_OA2
+Control_vs_OAT1
+Control_vs_OAT2
+```
+
+**Table 3** Posthoc comparisons showing percent chance that experimental treatments were different from control. Ordered respectively: Control vs T, Control vs OA1, Control vs OA2, Control vs OAT1, Control vs OAT2. Treatments: C: 8.1/17C, T: 8.1/21C, OA1: 7.8/17C, OA2: 7.6/17C, OAT1: 7.8/21C, OAT2: 7.6/21C
+
+``` {r dplot 1,  echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE, fig.width=5, fig.height = 3}
+#Figures 5-9. Density plots of marginal distributions comparing experimental treatments to control
+CvT_plot
+```
+
+**Figure 5.** Density plot comparison of marginal distributions showing differences in experimental treatment T (8.1/21C) vs control C (8.1/17C)
+
+``` {r dplot 2,  echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE, fig.width=5, fig.height = 3}
+CvOA1_plot
+```
+
+**Figure 6.** Density plot comparison of marginal distributions showing differences in experimental treatment OA1 (7.8/17C) vs control C (8.1/17C)
+
+``` {r dplot 3,  echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE, fig.width=5, fig.height = 3}
+CvOA2_plot
+```
+
+**Figure 7.** Density plot comparison of marginal distributions showing differences in experimental treatment OA2 (7.6/17C) vs control C (8.1/17C)
+
+``` {r dplot 4,  echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE, fig.width=5, fig.height = 3}
+CvOAT1_plot
+```
+
+**Figure 8.** Density plot comparison of marginal distributions showing differences in experimental treatment OAT1 (7.8/21C) vs control C (8.1/17C)
+
+``` {r dplot 5,  echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE, fig.width=5, fig.height = 3}
+CvOAT2_plot
+```
+
+**Figure 9.** Density plot comparison of marginal distributions showing differences in experimental treatment OAT2 (7.6/21C) vs control C (8.1/17C)
+
+``` {r finalplot,  echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE, cache = TRUE, fig.height=5, fig.width = 7}
+
+#Figure 10. 
+final_plot
+```
+
+**Figure 10.** Posterior predictive distribution visualizing the results from sampling the posterior of esd_fit_5 and building a dataframe of treatment estimates.
+
+
+###Discussion
+Based on current literature examining the climate change effects of temperature and/or pH on early life stage lobsters, as well as research on the correlation between warming water and prevalence of epizootic shell disease, I would expected to see some difference in percent disease coverage between experimental treatments and control (Ries et al 2009, Keppel et al 2012, Tlusty and Metzler 2012, Small et al 2015, Waller et al 2016). The differences seen in these results are meaningless as they are derived from fabricated data. This can also explain why treatments were different in the manner presented - due to the application of randomly distributed data when constucting the dataset for esd_ratio. 
+
+There have been no studies done looking at the effects of ocean acidification on epizootic shell disease presence in the American lobster with which to reference for explaining these results (were they real). Ries et al 2009 found that juveniles growing under low pH conditions grow more compared with controls, while Keppel et al 2012 found the opposite to be true for larvae. Outside factors could explain these differences (different life stages, uncontrolled error, pseudoreplication, etc), but they both do still suggest that acidified waters will have some effect on the shell development of early stage lobsters. The real question is how this will then be compounded (or ameliorated) by concurrently increasing temperatures. If ocean acidification weakens the structural integrity of the shell during the vulnerable stages of development by compromising the precipitation of stable minerals, would that increase incidences of injury or shell damage that could more readily allow ESD causing bacteria to take hold?
+
+Several studies have already shown a correlation between ESD prevelance temparture increase (Tlusty and Metzler 2012, Glenn and Pugh 2006). Following this logic, combined low pH and high temperatures could show a great increase in disease presence and at the very least we would expect to see a difference between high temperature treatments and control. This is the entire basis for this research; however, the question of testing a null hypothesis that compares the mean respose variables of experimental treatments with control may be an oversimplification of this system, especially when conducting the analysis in a bayesian framework. In future successful experiments, I would seek to develop a question that more appropriately addresses the complexity of the system and that would give posthoc results more meaning than just is there a difference or not. The post hoc methods I used here are more in line with frequentist approaches in that I was seeking a clear cut threshold with which to compare treatments and infer meaning, but this was inappropriate. I showed that there is a 38% chance that treatment 8.1/21C was different from control 8.1/17C; this certainly addresses my null hypothesis, but really is a bit meaningless unless I can show what that value of 38 really means. Since I can't, I take that to mean I should think more critically about what my research question should be to better understand the role pH and temp may have on ESD prevalence.
+
+As the effects from anthropogenic climate change continue to worsen, it is critical to continue research on the potential correlation to epizootic shell disease to ensure the health of American lobster populations and the sustainable management of the commercial fishery that contributes to a significant portion of the New England economy.
+
+
+###References:
+
+Castro KM, Factor JR, Angell T, and DF Landers Jr. 2006. The conceptual approach to lobster shell disease revisited. Journal of Crustacean Biology.  26: 646-660.
+
+Castro, K., Cobb, J.S., Gomez-Chiarri, M., Tlusty, M.F. 2012. Epizootic shell disease in	American lobsters Homarus americanus in southern New England: past, present and	future. Diseases of Aquatic Organisms, 100(2): 149-158.
+
+Castro K, and B Somers. 2012. Observations of epizootic shell disease in American lobsters, Homarus americanus, in Southern New England. J of Shellfish Research. 31.2: 423-430.
+
+Chistoserdov AY, Quinn RA, Gubbala AL & R Smolowitz. 2012. Bacterial communities	associated with lesions of shell disease in the American lobster, Homarus	americanus Milne-Edwards. J. Shellfish Res.31:449-462.
+
+Cornwall CE, and CL Hurd. 2016. Experimental design in ocean acidification research: problems and solutions. ICES J of Mar Sci. 73.3: 572-581.
+
+Cribari-Neto F, and A Zeileis. 2010. Beta Regression in R.Journal of Statistical Software. 34.2: 1-24.
+
+Crossin, GT, Al-Ayoub SA, Jury SH, Howell WH, and WH Watson III. 1998. Behavioral	thermoregulation in the American lobster Homarus americanus. J. Exp. Biol. 201: 365	374.
+
+Davies, C. E. et al. 2014. A comparison of the structure of American (Homarus americanus)	and European (Homarus gammarus) lobster cuticle with particular reference to shell	disease susceptibility. Journal of Invertebrate Pathology. 117: 33-41.
+
+Dickson, A. G., Sabine, C. L., & Christian, J. R. 2007. Guide to best practices for ocean CO2	measurements. PICES Special Publication 3, 191pp. 
+
+Fabry, V. J., McClintock, J. B., Mathis, J. T., and Grebmeier, J. M. 2009. Ocean acidification at	high latitudes: The bellweather. Oceanography. 22: 160-171.
+
+Glenn RP, and TL Pugh. 2006. Epizootic shell disease in American lobster (Homarus americanus) in Massachusetts coastal waters: interactions of temperature, maturity, and itnermolt duration. J of Crustacean Bio. 26.4: 639-645.
+
+Herrick, FH. 1909. Natural history of the American lobster. Bulletin of the U.S. Bureau of Fisheries, 29: 149-408+ 20 plates.
+
+Hurlbert, SH. 1984. Pseudoreplication and the design of ecological field experiments. Ecological	Monographs. 54.2: 187-211.
+
+IPCC, 2013: Climate Change 2013: The Physical Science Basis. Contribution of Working Group	I to the	Fifth Assessment Report of the Intergovernmental Panel on Climate Change	[Stocker, T.F., D. Qin, G.-K. Plattner, M. Tignor, S.K. Allen, J. Boschung, A. Nauels, Y.	Xia, V. Bex and P.M. Midgley (eds.)]. Cambridge University Press, Cambridge, United	Kingdom and New York, NY, USA, 1535 pp, doi:10.1017/CBO9781107415324.
+
+Keppel EA, Scrosati RA, and SC Courtenay. 2012. Ocean acidification decreases growth and	development in American lobster (Homarus americanus) larvae. J. Northw. Atl. Fish. Sci,	44: 61-66.
+
+Kunkel JG, Nagel W, and M.J Jercinovic. 2012. Mineral Fine Structure of the American Lobster Cuticle. Journal of Shellfish Research. 31.2: 515-526.
+
+Meres NJ, Ajuzie CC, Sikaroodi M, Vemulapalli M, Shields JD, and PM Gillevet. 2012.	Dysbiosis in epizootic shell disease of the American lobster (Homarus americanus). J of	Shellfish Research. 31.2: 463-472. 
+
+Mills, K. E., Pershing, A. J., Brown, C. J., Chen, Y., Chiang, F. S., Holland, D. S., Sigrid, L., et	al. 2013. Fisheries management in a changing climate lessons from the 2012 ocean heat	wave in the Northwest Atlantic. Oceanography, 26: 191-195.
+
+Nielsen TV and IJ McGaw. 2016. Behavioral thermoregulation and trade-offs in juvenile lobster	Homarus americanus. Biol. Bull. 230: 35-50. 
+
+Pershing AJ, Alexander MA, Hernandez CM, et al. 2015. Slow adaptation in the face of rapid warming leads to collapse of the Gulf of Maine cod fishery. Science. 350.6262: 809-812.
+
+Pierrot, D., Lewis, E., and Wallace, D. 2006. Program developed for CO2 system calculations: Carbon Dioxide Information Analysis Center, Oak Ridge National Laboratory, U.S. Department of Energy, Oak Ridge, Tennessee.
+
+Quinn RA, Metzler A, Smolowitz RM, Tlusty M and AY Chistoserdov. 2012. Exposures of	Homarus americanus shell to three bacteria isolated from naturally occurring epizootic	shell disease lesions. J of Shellfish Research. 31.2: 485-493.
+
+Riebesell, U., Fabry, V. J., Hansson, L., & Gattuso, J. 2009. Guide to best practices for ocean	acidification research and data reporting. Paper presented at the Report of International	Research Workshop on Best Practices for Ocean Acidification Research (19-21	November 2008 in Kiel, Germany). 
+
+Ries, J. B., Cohen, A. L., & McCorkle, D. C. (2009). Marine calcifiers exhibit mixed responses to CO2-induced ocean	acidification. Geology. 37(12): 1131-1134.
+
+Simas A.B., Barreto-Souza, W., and Rocha, A.V. 2010. Improved Estimators for a General Class
+of Beta Regression Models. Computational Statistics & Data Analysis. 54(2): 348-366.
+
+Small DP, Calosi, P, Boothroyd D, Widdicombe S, and JI Spicer. 2015. Stage-specific changes	in physiological and life-history responses to elevated temperature and pCO2 during the	larval development of the European lobster Homarus gammarus (L.). Physiological and	biochemical zoology. DOI: 10.1086/682238. 
+
+Tanaka, K and Y Chen. 2015. Spatiotemporal variability of suitable habitat for American lobster	(Homarus americanus) in Long Island Sound. J of Shellfish Research. 34.2: 531-543.
+
+Tlusty, MF and A Metzler. 2012. Relationship between Temperature and Shell Disease in Laboratory Populations of Juvenile American Lobsters (Homarus americanus). Journal of Shellfish Research. 31.2: 533-541.
+
+Waller, JD, Wahle, RA, McVeigh, H, and DM Fields. 2016. Linking rising pCO2 and 	temperature to the larval development and physiology of the American lobster (Homarus	americanus). ICES Journal of Marine Science. doi:10.1093/icesjms/fsw154.
+
+Wilcox-Freeburg, E., Rhyne, A., Robinson, W. E., Tlusty, M., Bourque, B., & Hannigan, R. E.	2013. A comparison of two pH-stat carbon dioxide dosing systems for ocean acidification	experiments. Limnol.Oceanogr.: Methods, 11, 485-494. 
+
